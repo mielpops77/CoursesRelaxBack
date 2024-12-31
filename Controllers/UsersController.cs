@@ -7,7 +7,7 @@ namespace CoursesRelaxBack.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [ApiKey] // Vérification de la clé API activée
+    /* [ApiKey] // Vérification de la clé API activée */
     public class UsersController : ControllerBase
     {
         private readonly AppDbContext _context;
