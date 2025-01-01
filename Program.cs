@@ -33,13 +33,19 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+
+app.UseStaticFiles();
+
 app.UseCors(corsPolicyName);
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication(); // Add this line for authentication
 app.UseAuthorization();
 
 app.MapControllers();
