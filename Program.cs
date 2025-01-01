@@ -23,20 +23,10 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
-var configuration = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json")
-    .Build();
-
-
-string connectionString = configuration.GetConnectionString("DefaultConnection");
 
 // Configure DbContext with Azure SQL
 builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
